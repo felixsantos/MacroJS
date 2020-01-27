@@ -1,0 +1,2 @@
+# MacroJS
+Automatizador de tarefas
