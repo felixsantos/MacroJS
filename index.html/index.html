@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Easy vestibular - manage</title>
+    <link rel="shortcut icon" href="src/img/mainLogo.png" />
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Icon fa-fa -->
+    <script src="https://kit.fontawesome.com/0200e74f44.js" crossorigin="anonymous"></script>
+
+    <!-- SyncFusion -->
+    <link rel="stylesheet" href="libs/SyncFusion/dist/material.css">
+    <script src="libs/SyncFusion/dist/ej2.min.js" crossorigin="anonymous"></script>
+    <script src="libs/SyncFusion/dist/" crossorigin="anonymous"></script>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="src/css/style.css">
+
+</head>
+
+<body>
+
+    <div id="test" style="height: 10px; width: 10px; background: red; position: fixed; z-index: 2;"></div>
+
+
+    </canvas>
+    <div class="container">
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="exampleFormControlTextarea1">Nome:</label>
+                <input type="text" name="" class="w-100 form-control " style="height: 30px">
+            </div>
+            <div class="form-group col-6">
+                <label for="exampleFormControlTextarea1">Sobre nome:</label>
+                <input type="text" name="" class="w-100 form-control " style="height: 30px">
+            </div>
+            <div class="form-group col-6">
+                <label for="exampleFormControlTextarea1">Telefone:</label>
+                <input type="text" name="" class="w-100 form-control " style="height: 30px">
+            </div>
+            <div class="form-group col-6">
+                <label for="exampleFormControlTextarea1">CPF:</label>
+                <input type="text" name="" class="w-100 form-control " style="height: 30px">
+            </div>
+            <div class="form-group col-6">
+                <label for="exampleFormControlTextarea1">RG:</label>
+                <input type="text" name="" class="w-100 form-control " style="height: 30px">
+            </div>
+            <div class="form-group col-6">
+                    <label for="exampleFormControlTextarea1">Senha</label>
+                    <input type="text" name="" class="w-100 form-control " style="height: 30px">
+                </div>
+                    <div class="form-group col-12 d-flex justify-content-end">
+                            <button class="btn btn-primary">Salvar</button>
+
+                </div>
+        </div>
+
+ 
+    </div>
+
+    <script>
+        console.clear();
+
+        $(":input,:button").each(function () {
+            let ele = $(this)[0]
+            $(this).addClass(classRadon($(this)));
+            console.log(this);
+
+            // console.log(class_gerada);
+
+        });
+        function classRadon(elem) {
+            let offsetLeft = elem.offset().left;
+            let offsetTop = elem.offset().top;
+            let offsetWidth = elem[0].offsetWidth;
+            let offsetHeight = elem[0].offsetHeight;
+            return `macrojs_${offsetLeft}_${offsetTop}_${offsetWidth}_${offsetHeight}`
+        }
+
+        $(document).click(
+            (e) => {
+                if (e.target.tagName == "INPUT") {
+                    console.log(e);
+                }
+                if (e.target.tagName == "BUTTON") {
+                    console.log(e);
+                }
+            })
+        var old = null;
+        $(document).keypress(
+            (e) => {
+                if ($(old) == $(e)) {
+                    //console.log("messmo");
+
+                }
+                if (e.target.tagName == "INPUT") {
+                    old = e
+                }
+                console.log(e);
+            })
+
+
+        function eventClick(e) {
+            let x;
+            let y
+            try {
+                x = $(e)[0].originalEvent.x;
+                y = $(e)[0].originalEvent.y;
+            } catch (error) {
+
+            }
+            setIconCLick(x, y)
+            setTimeout(() => {
+                elementPositionClick(e)
+                console.log('ok');
+
+            }, 1000);
+        }
+        function setIconCLick(x, y) {
+            $("#test").offset({ top: y, left: x })
+
+        }
+
+        function elementPositionClick(e) {
+            $($(e)[0].target).focus();
+            console.log(typeof e);
+
+        }
+
+
+
+//console.log(onMouseMove($(e)[0].originalEvent.x,$(e)[0].originalEvent.y))
+    </script>
+</body>
+
+</html>
