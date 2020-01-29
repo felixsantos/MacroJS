@@ -1,11 +1,22 @@
 {
     "compilerOptions": {
       "target": "es5",       
-      "module": "commonjs",  
-      "outDir": "./src/js",    
+      "module": "system",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "app.js",
+        "sourceMap": true  
     },
-    "include": ["./src/**/*"],
-    "exclude": [
-      "node_modules"
-    ]
+    "include": [
+      "components/**/*",
+      "src/**/*",
+       "app.ts"
+   
+
+  ],
+  "exclude": [
+      "node_modules",
+      "**/*.spec.ts"
+  ]
   }
